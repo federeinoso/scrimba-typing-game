@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 
-const useWordGame = () => {
-  const STARTING_TIME = 5;
-
+const useWordGame = (startingTime = 15) => {
   const [text, setText] = useState("");
-  const [timeRemaining, setTimeRemaining] = useState(STARTING_TIME);
+  const [timeRemaining, setTimeRemaining] = useState(startingTime);
   const [startGame, setStartGame] = useState(false);
   const [wordCount, setWordCount] = useState(0);
 
@@ -33,7 +31,7 @@ const useWordGame = () => {
 
   function startClock() {
     setStartGame(true);
-    setTimeRemaining(STARTING_TIME);
+    setTimeRemaining(startingTime);
     setText("");
     setWordCount(0);
     textareaRef.current.disabled = false;
